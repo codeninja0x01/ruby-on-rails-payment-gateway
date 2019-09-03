@@ -1,0 +1,43 @@
+<% provide(:title, "Fund Account") %>
+        <% flash.each do |message_type, message| %>
+            <%= message(message_type, message) %>
+        <% end %>
+                    <div class="col-sm-6 col-sm-offset-3">
+
+        <div class="content content-narrow">
+                <div class="block">
+                    <div class="block-header">
+                        <h3 class="block-title">Balance Card Fund</h3>
+                    </div>
+                    <div class="block-content block-content-full">
+                            <ul class="list list-activity push">
+                                <li>
+                                    <div class="font-w600">Balance Amount: <%= @balance_card_fund.current_balance %> Birr</div>
+                                </li>
+                                <li>
+                                    <div class="font-w600">Balance Expired On: <%= @balance_card_fund.expired_at %></div>
+                                </li>
+                                <li>
+                                <%= form_tag(fund_path(@balance_card_fund.card_code), method: :put, class: "form-horizontal push-10-t") do %>
+                                <%= short_has_error(@balance_card_fund) %>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material floating">
+                                            <input class="form-control" type="text" name="amount">
+                                            <label for="lock3-password">Enter Amount</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <button class="btn btn-sm btn-danger" type="submit"></i> Fund Account</button>
+                                    </div>
+                                </div>
+                            <% end -%>
+
+                                </li>
+                            </ul>
+                    </div>
+                </div>
+        </div>
+</div>

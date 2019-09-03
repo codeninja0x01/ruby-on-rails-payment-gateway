@@ -1,0 +1,62 @@
+   <% provide(:title, "Sign In") %>
+                   <!-- Login Block -->
+                    <div class="block block-themed animated fadeIn">
+                        <div class="block-header bg-success">
+                            <ul class="block-options">
+                                <li>
+                                    <%= link_to "Forgot Password?", new_password_reset_path %>
+                                </li>
+                                <li>
+                                    <%= link_to "Sign Up", signup_path, 'data-toggle': "tooltip", 'data-placement': "left", title: "New Account" %>
+                                </li>
+                            </ul>
+                            <h3 class="block-title">Login</h3>
+                        </div>
+                        <div class="block-content block-content-full block-content-narrow">
+                            <!-- Login Title -->
+                            <h1 class="h2 font-w600 push-30-t push-5">ProjectY</h1>
+                            <p>Welcome, please login.</p>
+                            <!-- END Login Title -->
+                            <!-- Login Form -->
+                            <!-- jQuery Validation (.js-validation-login class is initialized in js/pages/base_pages_login.js) -->
+                            <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                            <%= form_for(:session, url: sessions_path, html: {class: "js-validation-login form-horizontal push-30-t push-50"}) do |f| %>
+
+                                <% flash.each do |message_type, message| %>
+                                    <%= message(message_type, message) %>
+                                <% end %>
+                                
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material form-material-primary floating">
+                                            <%= f.text_field :email, class: "form-control" %>
+                                            <%= f.label :email %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material form-material-primary floating">
+                                            <%= f.password_field :password, class: "form-control" %>
+                                            <%= f.label :password %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <label class="css-input switch switch-sm switch-primary">
+                                            <%= f.check_box :remember_me %>
+                                            <span></span> Remember Me?
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <%= f.submit('Sign In', class: "btn btn-block btn-primary" ) %>
+                                    </div>
+                                </div>
+                            <% end -%>
+                            <!-- END Login Form -->
+                        </div>
+                    </div>
+                    <!-- END Login Block -->

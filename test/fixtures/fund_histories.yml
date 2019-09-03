@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fund_type: one
+  account: one
+  fund_amount: 1
+  funded_on: 2016-11-24 13:31:36
+
+two:
+  fund_type: two
+  account: two
+  fund_amount: 1
+  funded_on: 2016-11-24 13:31:36

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= page_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+        <body>
+        <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
+
+            <!-- Side Overlay -->
+			<%= render partial: 'layouts/inc/right_side_bar' %>
+            <!-- END Side Overlay -->
+
+            <!-- Sidebar -->
+            <%= render partial: 'layouts/inc/left_side_bar' %>
+            <!-- END Sidebar -->
+
+            <!-- Header -->
+			<%= render partial: 'layouts/inc/top_nav_bar' %>
+            <!-- END Header -->
+
+            <main id="main-container">
+            <!-- Main Container -->
+			<%= yield %>
+                <!-- END Page Content -->
+            </main>
+            <!-- END Main Container -->
+            
+            <!-- Footer -->
+			<%= render partial: "layouts/inc/footer" %>
+            <!-- END Footer -->
+        </div>
+        <!-- END Page Container -->
+        <%= javascript_include_tag params[:controller], :cache => false %>
+  </body>
+</html>

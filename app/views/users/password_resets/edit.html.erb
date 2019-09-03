@@ -1,0 +1,52 @@
+<% provide(:title, "Password Resest") %>
+<!-- Reminder Block -->
+                    <div class="block block-themed animated fadeIn">
+                        <div class="block-header bg-success">
+                            <h3 class="block-title">Create New Password</h3>
+                        </div>
+                        <div class="block-content block-content-full block-content-narrow">
+                            <!-- Reminder Form -->
+                            <!-- jQuery Validation (.js-validation-reminder class is initialized in js/pages/base_pages_reminder.js) -->
+                            <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                            <%= form_for(@user, url: password_reset_path(params[:id]), html: {class: "js-validation-reminder form-horizontal push-30-t push-50"}) do |f| %>
+                                    <% flash.each do |message_type, message| %>
+                                    <%= message(message_type, message) %>
+                                <% end %>
+                            <% if @user.errors.any? %>
+                                <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h4 class="font-w300 push-15">Please fix the following errors</h4>
+                                  <ul>
+                                  <% @user.errors.full_messages.each do |message| %>
+                                    <li><%= message %></li>
+                                  <% end %>
+                                  </ul>
+                                </div>
+                              <% end %>
+                                <%= hidden_field_tag :email, @user.email %>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material form-material-success">
+                                              <%= f.password_field :password, class: "form-control", placeholder: "Enter password" %>
+                                              <%= f.label :password %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material form-material-success">
+                                              <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Enter password confirmation" %>
+                                              <%= f.label :password_confirmation %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12 col-sm-6 col-md-5">
+                                        <%= f.submit('Update', class: "btn btn-block btn-primary" ) %>
+                                    </div>
+                                </div>
+                            <% end -%>
+                            <!-- END Reminder Form -->
+                        </div>
+                    </div>
+                    <!-- END Reminder Block -->

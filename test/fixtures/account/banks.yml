@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bank: one
+  account: one
+  bank_account_number: MyString
+  bank_holder_name: MyString
+  verified: false
+  verified_at: 2016-12-06 18:45:26
+  verified_by: 1
+
+two:
+  bank: two
+  account: two
+  bank_account_number: MyString
+  bank_holder_name: MyString
+  verified: false
+  verified_at: 2016-12-06 18:45:26
+  verified_by: 1

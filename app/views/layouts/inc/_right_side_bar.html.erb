@@ -1,0 +1,65 @@
+<!-- Side Overlay-->
+            <aside id="side-overlay">
+                <!-- Side Overlay Scroll Container -->
+                <div id="side-overlay-scroll">
+                    <!-- Side Header -->
+                    <div class="side-header side-content">
+                        <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                        <button class="btn btn-default pull-right" type="button" data-toggle="layout" data-action="side_overlay_close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <span>
+                            <%= image_tag "avatars/avatar10.jpg", class: "img-avatar img-avatar32" %>
+                            <span class="font-w600 push-10-l"><%= user_full_name %></span>
+                        </span>
+                    </div>
+                    <!-- END Side Header -->
+
+                    <!-- Side Content -->
+                    <div class="side-content remove-padding-t">
+                        <!-- Notifications -->
+                        <div class="block pull-r-l">
+                            <div class="block-header bg-gray-lighter">
+                                <ul class="block-options">
+                                    <li>
+                                        <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                    </li>
+                                    <li>
+                                        <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                                    </li>
+                                </ul>
+                                <h3 class="block-title">Recent Transaction</h3>
+                            </div>
+                            <div class="block-content">
+                                <!-- Activity List -->
+
+                                <!-- END Activity List -->
+                            </div>
+                        </div>
+                        <!-- END Notifications -->
+
+
+                        <!-- Quick Settings -->
+                        <div class="block pull-r-l">
+                            <div class="block-header bg-gray-lighter">
+                                <ul class="block-options">
+                                    <li>
+                                        <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                                    </li>
+                                </ul>
+                                <h3 class="block-title">Quick Settings</h3>
+                            </div>
+                            <div class="block-content">
+                                <!-- Quick Settings Form -->
+                                
+                                </form>
+                                <!-- END Quick Settings Form -->
+                            </div>
+                        </div>
+                        <!-- END Quick Settings -->
+                    </div>
+                    <!-- END Side Content -->
+                </div>
+                <!-- END Side Overlay Scroll Container -->
+            </aside>
+            <!-- END Side Overlay -->

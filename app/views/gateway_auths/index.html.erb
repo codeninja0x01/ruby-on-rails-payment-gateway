@@ -1,0 +1,91 @@
+<%= short_has_error(@purchase_items) %>
+<div>
+    <section class="content content-boxed">
+        <!-- Section Content -->
+        <div class="row items-push push-20-t nice-copy">
+            <div class="col-md-6">
+
+            <!-- Table -->
+            <div class="table-responsive push-50">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th >Descriptions</th>
+                            <th class="text-right" style="width: 120px;">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p class="font-w600 push-10"><%= @purchase_items.item_name %></p>
+                            </td>
+                            <td class="text-right"><%= @purchase_items.item_desc %></td>
+                            <td class="text-right"><%= @purchase_items.item_price %> Birr</td>
+                        </tr>
+                        <tr class="active">
+                            <td colspan="2" class="font-w700 text-uppercase text-right">Total Due</td>
+                            <td class="font-w700 text-right"><%= @purchase_items.item_price %> Birr</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- END Table -->
+
+            <!-- Footer -->
+            <p class="text-muted text-center"><small>Thank you very much for doing business with us. We look forward to working with you again!</small></p>
+            <!-- END Footer -->
+            </div>
+            <div class="col-md-6">
+            <% unless signed_in? %>
+                <!-- Company Timeline -->
+                <div class="block block-transparent">
+                    <div class="block-content">
+                        <%= form_for(:session, remote: true, url: sessions_path, html: {class: "js-validation-login form-horizontal push-10-t push-10"}) do |f| %>
+                    
+                            <% flash.each do |message_type, message| %>
+                                <%= message(message_type, message) %>
+                            <% end %>
+                            
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <div class="form-material form-material-primary floating">
+                                        <%= f.text_field :email, class: "form-control" %>
+                                        <%= f.label :email %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <div class="form-material form-material-primary floating">
+                                        <%= f.password_field :password, class: "form-control" %>
+                                        <%= f.label :password %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <%= f.submit('Sign In And pay', class: "btn btn-block btn-primary" ) %>
+                                </div>
+                            </div>
+                        <% end -%>
+                    </div>
+                </div>
+                <!-- END Company Timeline -->
+            <% else %>
+            <div class="block block-transparent">
+                <div class="block-content">
+                    <section class="content content-full content-boxed">
+                        <!-- Section Content -->
+                        <div class="push-20-t push-20 text-center">
+                        <%= link_to "Make Payment", make_payment_path(id: @purchase_items), class: "btn btn-rounded btn-noborder btn-lg btn-success" %>
+                        </div>
+                        <!-- END Section Content -->
+                    </section>
+                </div>
+            <% end -%>
+            </div>
+        </div>
+        <!-- END Section Content -->
+    </section>
+</div>

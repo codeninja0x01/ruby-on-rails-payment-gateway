@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  transfer_amount: 9.99
+  transfer_on: 2016-11-28 11:50:12
+  transfer_to: 1
+  account: one
+
+two:
+  transfer_amount: 9.99
+  transfer_on: 2016-11-28 11:50:12
+  transfer_to: 1
+  account: two

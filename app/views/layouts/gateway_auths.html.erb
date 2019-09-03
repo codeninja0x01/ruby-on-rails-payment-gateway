@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= page_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>   
+        <body>
+            <!-- Main Container -->
+            <main id="main-container">
+
+            <%= yield %>
+
+            </main>
+            <!-- END Main Container -->
+
+
+        <!-- END Page Container -->
+        <%= javascript_include_tag :application, :cache => false %>
+  </body>
+</html>

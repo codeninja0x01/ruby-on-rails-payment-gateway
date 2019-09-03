@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_price: 9.99
+  item_name: MyString
+  item_desc: MyText
+  account: one
+  is_completed: false
+
+two:
+  item_price: 9.99
+  item_name: MyString
+  item_desc: MyText
+  account: two
+  is_completed: false

@@ -1,0 +1,2 @@
+module BalanceCard::FundsHelper
+end

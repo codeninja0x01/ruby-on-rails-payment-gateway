@@ -1,0 +1,120 @@
+ <% provide(:title, "Dashboard") %>
+                <% flash.each do |message_type, message| %>
+                    <%= message(message_type, message) %>
+                <% end %>
+                <!-- Page Content -->
+                <div class="content">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <!-- Main Dashboard Chart -->
+                            <div class="block">
+                                <div class="block-header">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Account Trasactions</h3>
+                                </div>
+                                <div class="block-content block-content-full text-center">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Type</th>
+                                        <th class="text-center" style="width: 15%;">Title</th>
+                                        <th class="text-center">Amount</th>
+                                        <th class="text-center hidden-xs">Issued Date</th>
+                                        <th class="text-center hidden-xs">Status</th>
+                                        <th class="text-center hidden-xs">Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% @transactions.includes(:transaction_type, :status).find_each do |transaction| %>
+                                    <tr>
+                                        <td class="text-center"><%= transaction.transaction_type.title %></td>
+                                        <td class="text-center"><%= transaction.title.blank? ? 'Untitled' : transaction.title %></td>
+                                        <td class="text-center"><%= transaction.amount %></td>
+                                        <td class="text-center"><%= transaction.created_at  %></td>
+                                        <td class="text-center">
+                                        <% if transaction.status.title == "Completed"  %>
+                                            <span class="label label-success">Completed</span>
+                                        <% elsif transaction.status.title == "Pending" %>
+                                            <span class="label label-info">Pending</span>
+                                        <% elsif transaction.status.title == "Canceled" %>
+                                            <span class="label label-warning">Canceled</span>
+                                        <% end -%>
+                                        </td>
+                                        <td class="hidden-xs">
+                                            <%= transaction.note.blank? ? 'Note is Empty' : transaction.note %>
+                                        </td>
+                                    </tr>
+                                    <% end %>
+                                </tbody>
+                            </table>
+
+                                </div>
+                            </div>
+                            <!-- END Main Dashboard Chart -->
+                        </div>
+                        <div class="col-lg-4">
+                            <!-- Latest Sales Widget -->
+                            <div class="block">
+                                <div class="block-header">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Current Balance</h3>
+                                </div>
+                                <table class="block-table text-center">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 50%;">
+                                                <div class="h1 font-w700"><span class="h2 text-muted"><%= current_user.account.current_balance %></div>
+                                                <div class="h5 text-muted text-uppercase push-5-t">Birr</div>
+                                            </td>
+                                            <td class="bg-success" style="width: 50%;">
+                                                <div class="push-30 push-30-t">
+                                                    <i class="si si-wallet fa-3x text-white-op"></i>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <!-- Main Dashboard Chart -->
+                            <div class="block">
+                                <div class="block-header">
+                                    <h3 class="block-title">Basic Info</h3>
+                                </div>
+                                <div class="block-content">
+                                    <ul class="list list-activity push">
+                                        <li>
+                                            <i class="si si-user text-success"></i>
+                                            <div class="font-w600">Full Name</div>
+                                            <div><%= user_full_name %></div>
+                                        </li>
+                                        <li>
+                                            <i class="si si-envelope text-success"></i>
+                                            <div class="font-w600">Email</div>
+                                            <div><%= current_user.email %></div>
+                                        </li>
+                                        <li>
+                                            <i class="si si-info text-success"></i>
+                                            <div class="font-w600">Account ID</div>
+                                            <div><%= current_account.account_id %></div>
+                                        </li>
+                                        <li>
+                                            <i class="si si-wallet text-success"></i>
+                                            <div class="font-w600">Account Type</div>
+                                            <div><%= current_account.type.name %></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Content -->

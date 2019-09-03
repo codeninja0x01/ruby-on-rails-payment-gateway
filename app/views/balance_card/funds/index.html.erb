@@ -1,0 +1,47 @@
+<% provide(:title, "Fund Account") %>
+        <% flash.each do |message_type, message| %>
+            <%= message(message_type, message) %>
+        <% end %>
+        <div class="content content-narrow">
+                <div class="block">
+                    <div class="block-header">
+                        <h3 class="block-title">Account Fund</h3>
+                    </div>
+                    <div class="block-content block-content-narrow">
+                    <%= form_for(@balance_card_fund, url: funds_path, class: "form-horizontal push-50") do |f| %>
+                    <%= short_has_error(@balance_card_fund) %>
+                        <div class="form-group">
+                            <div class="col-sm-6 col-sm-offset-3">
+                                <div class="input-group input-group-lg">
+                                    <%= f.text_field :card_code, class: "form-control", placeholder: "Please Enter Card Number" %>
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default">Fund</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% end -%>
+                    </div>
+
+                    <div class="block-content block-content-full text-center">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th class="text-center" style="width: 50px;">#</th>
+                                <th class="text-center">Fund Amount</th>
+                                <th class="text-center">Funded on</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @balance_card_funds.each do |history| %>
+                                <tr>
+                                    <td class="text-center"><%= history.id %></td>
+                                    <td class="text-center"><%= history.fund_amount %></td>
+                                    <td class="text-center"><%= history.fund_on %></td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+        </div>

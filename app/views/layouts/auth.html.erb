@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= page_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+        <body>
+        <div class="content overflow-hidden">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+                
+                    <!-- Login Content -->
+                	<%= yield %>
+                    <!-- END Login Content -->
+
+                    <!-- Login Footer -->
+                    <div class="push-10-t text-center animated fadeInUp">
+                        <small class="text-muted font-w600"><span class="js-year-copy"></span> &copy; ProjectY 1.0</small>
+                    </div>
+                    <!-- END Login Footer -->
+                </div>
+            </div>
+        </div>
+
+<%= javascript_include_tag params[:controller], 'data-turbolinks-track': 'reload' %>
+  </body>
+</html>

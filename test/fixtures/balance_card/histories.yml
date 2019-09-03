@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fund_amount: 9.99
+  fund_on: 2016-12-20 19:22:52
+  balance_card: one
+  account: one
+
+two:
+  fund_amount: 9.99
+  fund_on: 2016-12-20 19:22:52
+  balance_card: two
+  account: two

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  serial_number: 1
+  card_number: 
+  amount: 1
+  expiration_date: 2016-11-23
+  created_at: 2016-11-23 15:31:16
+  created_by: 1
+
+two:
+  serial_number: 1
+  card_number: 
+  amount: 1
+  expiration_date: 2016-11-23
+  created_at: 2016-11-23 15:31:16
+  created_by: 1

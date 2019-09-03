@@ -1,0 +1,53 @@
+<% provide(:title, "Bank Details") %>
+        <% flash.each do |message_type, message| %>
+            <%= message(message_type, message) %>
+        <% end %>
+        <div class="content content-narrow">
+                <div class="block">
+                    <div class="block-header">
+                        <h3 class="block-title">Bank Details</h3>
+                    </div>
+                    <div class="block-content">
+                    <div class="block-content block-content-full text-center">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Bank Name</th>
+                                <th class="text-center">Account Name</th>
+                                <th class="text-center">Bank Account</th>
+                                <th class="text-center">Status</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @accounts_banks.each do |bank| %>
+                                <tr>
+                                    <td class="text-center"><%= bank.bank_list.name %></td>
+                                    <td class="text-center"><%= bank.bank_holder_name %></td>
+                                    <td class="text-center"><%= bank.bank_account_number %></td>
+                                    <td class="text-center"><%= bank.verified? ? '<span class="label label-success">Bank Is Verified</span>'.html_safe : '<span class="label label-danger">Bank Not Verified</span>'.html_safe %></td>
+                                    <td class="text-center">
+                                    <%= link_to edit_bank_path(bank), html: {class: "btn btn-sm btn-danger"} do %>
+                                        <i class="fa fa-edit"></i> Edit Bank Details
+                                    <% end -%>
+                                    </td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                    </div>
+
+                    <div class="block-content block-content-mini block-content-full">
+                    <div class="row">
+                        <div class="col-xs-6">
+                        <%= link_to new_bank_path, class: "btn btn-sm btn-info" do %>
+                          <i class="fa fa-link"></i> Add New Bank Account
+                      <% end -%>
+                      </div>
+                    </div>
+                    </div>
+                    
+                    </div>
+
+                </div>
+        </div>
